@@ -11,23 +11,7 @@ public class ReverseNodesInKGroup {
     }
 
     public ListNode reverseKGroup(ListNode head, int k) {
-        if (head == null) {
-            return null;
-        } else {
-            ListNode newHead = head.next;
-            ListNode lastNode = head;
-            boolean flag = false;
-            while (head != null && head.next != null) {
-
-                // 上一个结尾的next记得保留
-                if (flag) {
-                    lastNode.next = afterNode;
-                    lastNode = beforeNode;
-                } else {
-                    flag = true;
-                }
-            }
-            return newHead;
-        }
+        // todo 等到后面复习的时候回来写
+        return null;
     }
 }
