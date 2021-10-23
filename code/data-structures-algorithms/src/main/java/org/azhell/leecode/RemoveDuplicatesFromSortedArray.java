@@ -1,5 +1,7 @@
 package org.azhell.leecode;
 
+import org.azhell.tool.Utils;
+
 /**
  * 删除有序数组中的重复项
  * 使用快慢指针的方式，遇到重复值就将重复值的一个写入到前面去
@@ -8,9 +10,9 @@ public class RemoveDuplicatesFromSortedArray {
     public static void main(String[] args) {
         int[] nums = new int[]{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
         int count = new RemoveDuplicatesFromSortedArray().removeDuplicates(nums);
-        System.out.println("count is " + count);
+        Utils.print("count is " + count);
         for (int i = 0; i < count; i++) {
-            System.out.println(nums[i]);
+            Utils.print(nums[i]);
         }
     }
 

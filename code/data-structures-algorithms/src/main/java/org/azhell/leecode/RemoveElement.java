@@ -1,5 +1,7 @@
 package org.azhell.leecode;
 
+import org.azhell.tool.Utils;
+
 /**
  * 移除元素
  * 这个题目和前一题目很类似，还是继续使用快慢指针解题
@@ -9,9 +11,9 @@ public class RemoveElement {
     public static void main(String[] args) {
         int[] nums = new int[]{0, 1, 2, 2, 3, 0, 4, 2};
         int count = new RemoveElement().removeElement(nums, 2);
-        System.out.println("count is " + count);
+        Utils.print("count is " + count);
         for (int i = 0; i < count; i++) {
-            System.out.println(nums[i]);
+            Utils.print(nums[i]);
         }
     }
 
