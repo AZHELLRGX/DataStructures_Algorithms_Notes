@@ -55,4 +55,20 @@ public class Utils {
         s.append("]");
         System.out.println(s);
     }
+
+    public static String handleLeetcodeQuestionENName(String str) {
+        // 使用空格将句子切分成单词
+        String[] strArr = str.split(" ");
+        StringBuilder sb = new StringBuilder();
+        // 遍历取出每个单词，将首字母转换为大写
+        for (String string : strArr) {
+            String upperStr = string.substring(0, 1).toUpperCase() + string.substring(1);
+            sb.append(upperStr);
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(handleLeetcodeQuestionENName("Search Insert Position"));
+    }
 }
