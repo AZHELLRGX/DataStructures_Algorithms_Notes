@@ -1,5 +1,6 @@
 package org.azhell.leecode;
 
+import org.azhell.tool.StaticData;
 import org.azhell.tool.Utils;
 
 import java.util.HashMap;
@@ -16,7 +17,8 @@ import java.util.Set;
 public class ValidSudoku {
 
     public static void main(String[] args) {
-        char[][] board = new char[][]{{'5', '3', '.', '.', '7', '.', '.', '.', '.'}
+        Utils.print(new ValidSudoku().isValidSudoku(StaticData.board));
+        StaticData.board = new char[][]{{'8', '3', '.', '.', '7', '.', '.', '.', '.'}
                 , {'6', '.', '.', '1', '9', '5', '.', '.', '.'}
                 , {'.', '9', '8', '.', '.', '.', '.', '6', '.'}
                 , {'8', '.', '.', '.', '6', '.', '.', '.', '3'}
@@ -25,17 +27,7 @@ public class ValidSudoku {
                 , {'.', '6', '.', '.', '.', '.', '2', '8', '.'}
                 , {'.', '.', '.', '4', '1', '9', '.', '.', '5'}
                 , {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
-        Utils.print(new ValidSudoku().isValidSudoku(board));
-        board = new char[][]{{'8', '3', '.', '.', '7', '.', '.', '.', '.'}
-                , {'6', '.', '.', '1', '9', '5', '.', '.', '.'}
-                , {'.', '9', '8', '.', '.', '.', '.', '6', '.'}
-                , {'8', '.', '.', '.', '6', '.', '.', '.', '3'}
-                , {'4', '.', '.', '8', '.', '3', '.', '.', '1'}
-                , {'7', '.', '.', '.', '2', '.', '.', '.', '6'}
-                , {'.', '6', '.', '.', '.', '.', '2', '8', '.'}
-                , {'.', '.', '.', '4', '1', '9', '.', '.', '5'}
-                , {'.', '.', '.', '.', '8', '.', '.', '7', '9'}};
-        Utils.print(new ValidSudoku().isValidSudoku(board));
+        Utils.print(new ValidSudoku().isValidSudoku(StaticData.board));
     }
 
     public boolean isValidSudoku(char[][] board) {
