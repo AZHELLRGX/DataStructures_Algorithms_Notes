@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 3数字之和
+ * 三数之和
  * 排序、双指针解法；第二次使用到双指针
  */
 public class Q3Sum {

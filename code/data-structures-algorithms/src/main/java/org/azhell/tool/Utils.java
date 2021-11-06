@@ -10,9 +10,6 @@ public class Utils {
 
     /**
      * 根据数组创建一个链表
-     *
-     * @param array
-     * @return
      */
     public static ListNode initLinkedList(int[] array) {
         ListNode curNode = new ListNode(array[0]);
@@ -42,6 +39,24 @@ public class Utils {
 
     public static void print(Object o) {
         System.out.println(o);
+    }
+
+    public static void print(int[][] array) {
+        StringBuilder s = new StringBuilder("[");
+        for (int i = 0; i < array.length; i++) {
+            s.append("[");
+            for (int j = 0; j < array[i].length; j++) {
+                s.append(array[i][j]);
+                if (j != array.length - 1) {
+                    s.append(",");
+                }
+            }
+            if (i != array.length - 1) {
+                s.append("],\n");
+            }
+        }
+        s.append("]");
+        System.out.println(s);
     }
 
     public static void print(int[] array) {
