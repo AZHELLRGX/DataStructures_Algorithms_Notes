@@ -4,8 +4,7 @@ import org.azhell.leecode.entry.ListNode;
 
 /**
  * K 个一组翻转链表
- * 双指针解法
- * todo 明天再看
+ * 主要考察设计能力
  */
 public class ReverseNodesInKGroup {
     public static void main(String[] args) {
@@ -22,21 +21,10 @@ public class ReverseNodesInKGroup {
             nodeCount++;
             node = node.next;
         }
+        // 先将链表整个反转
+        while ()
 
-        // 需要两个临时变量，一个记录下一个节点，一个用来记录一组节点反转后的最后一个节点
-        ListNode currentNode = head;
-        ListNode kNode = head;
-        while (j < nodeCount) {
-            if (j - i == k) {
-                while (i <= j) {
-                    ListNode nextNode = currentNode.next;
-                    ListNode next2Node = nextNode.next;
-                    nextNode.next = kNode;
-                    i++;
-                }
-            }
-            j++;
-        }
+        // 然后从新的头到尾每隔k个改变头尾指针即可
         return head;
     }
 }
