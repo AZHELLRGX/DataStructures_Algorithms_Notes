@@ -22,8 +22,6 @@ public class ReverseNodesInKGroup {
             node = node.next;
         }
         // 先将链表整个反转
-        while ()
-
         // 然后从新的头到尾每隔k个改变头尾指针即可
         return head;
     }

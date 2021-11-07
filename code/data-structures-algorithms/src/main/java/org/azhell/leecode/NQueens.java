@@ -67,10 +67,8 @@ public class NQueens {
                     leftSlashHasQ[rowIndex - colIndex + n - 1] = true;
                     rightSlashHasQ[rowIndex + colIndex] = true;
                     // 继续往后
-                    index = i;
-                    solveNQueens(++qCount, ++index, n);
+                    solveNQueens(qCount + 1, i + 1, n);
                     // 回溯
-                    qCount--;
                     chars[rowIndex][colIndex] = '.';
                     rowHasQ[rowIndex] = false;
                     colHasQ[colIndex] = false;
