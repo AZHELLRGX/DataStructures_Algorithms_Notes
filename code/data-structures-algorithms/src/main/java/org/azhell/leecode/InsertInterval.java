@@ -7,7 +7,6 @@ import java.util.List;
 
 /**
  * 57. 插入区间
- * todo 明天再做
  */
 public class InsertInterval {
     public static void main(String[] args) {
@@ -16,33 +15,37 @@ public class InsertInterval {
                 {6, 9}
         };
         Utils.print(new InsertInterval().insert(intervals, new int[]{2, 5}));
-        Utils.print(new InsertInterval().insert(new int[][]{}, new int[]{2, 5}));
-        Utils.print(new InsertInterval().insert(new int[][]{{1, 5}}, new int[]{2, 5}));
+        Utils.print(new InsertInterval().insert(new int[][]{{1, 5}}, new int[]{2, 3}));
+        Utils.print(new InsertInterval().insert(new int[][]{}, new int[]{5, 7}));
+        intervals = new int[][]{
+                {1, 2},
+                {3, 5},
+                {6, 7},
+                {8, 10},
+                {12, 16}
+        };
+        Utils.print(new InsertInterval().insert(intervals, new int[]{4, 8}));
     }
 
     public int[][] insert(int[][] intervals, int[] newInterval) {
-        List<int[]> result = new ArrayList<>();
         if (intervals.length == 0) {
-            intervals = new int[][]{newInterval};
-        } else {
-            int[][] tempInternal = new int[intervals.length][2];
-            int j = 0;
-            for (int i = 0; i < intervals.length; i++) {
-                if (intervals[i][0] >= newInterval[0]) {
-                    tempInternal[i] = newInterval;
-                    j = i;
-                    break;
-                } else {
-                    tempInternal[i] = intervals[i];
-                }
-            }
-            for (int i = j; i < intervals.length; i++) {
-                tempInternal[i + 1] = intervals[i];
-            }
-
+            return new int[][]{newInterval};
         }
 
 
+        List<int[]> result = new ArrayList<>();
+        // 使用插入排序
+        int[][] intervalsTemp = new int[intervals.length + 1][2];
+        if (newInterval.length > 0) {
+            int k = 0;
+            while (k < intervals.length && intervals[k][0] < newInterval[0]) {
+                intervalsTemp[k] = intervals[k];
+                k++;
+            }
+            intervalsTemp[k] = newInterval;
+            System.arraycopy(intervals, k, intervalsTemp, k + 1, intervals.length - k);
+            intervals = intervalsTemp;
+        }
         int[] tempArray = intervals[0];
         for (int i = 1; i < intervals.length; i++) {
             if (tempArray[1] >= intervals[i][0]) {
