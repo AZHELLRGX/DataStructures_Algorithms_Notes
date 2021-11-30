@@ -11,27 +11,28 @@ import org.azhell.tool.Utils;
 public class NthDigit {
     public static void main(String[] args) {
         NthDigit nthDigit = new NthDigit();
-//        Utils.print(nthDigit.findNthDigit(3));
-//        Utils.print(nthDigit.findNthDigit(11));
-//        Utils.print(nthDigit.findNthDigit(10));
+        Utils.print(nthDigit.findNthDigit(3));
+        Utils.print(nthDigit.findNthDigit(11));
+        Utils.print(nthDigit.findNthDigit(10));
         Utils.print(nthDigit.findNthDigit(1000000000));
     }
 
     public int findNthDigit(int n) {
+        int d = 1;
         int count = 9;
-        int numDigits = 1;
-        while (n > count * numDigits) {
-            n = n - count * numDigits;
+        while (n > (long) d * count) {
+            n -= d * count;
+            d += 1;
             count *= 10;
-            numDigits += 1;
         }
-        int index = (n - 1) / numDigits;
-        int remainder = n % numDigits;
-        if (remainder > 0) {
-            remainder = remainder - 1;
-        } else {
-            remainder = numDigits - 1;
-        }
-        return String.valueOf((int) Math.pow(10, (numDigits - 1)) + index).charAt(remainder) - '0';
+        // 最终在区间的数字索引
+        int index = n - 1;
+        // 区间起始数字
+        int start = (int) Math.pow(10, (d - 1));
+        // 找到对应的数
+        int num = start + index / d;
+        // 数中的第digitIndex位数字就是我们需要的数字
+        int digitIndex = index % d;
+        return String.valueOf(num).charAt(digitIndex) - '0';
     }
 }
