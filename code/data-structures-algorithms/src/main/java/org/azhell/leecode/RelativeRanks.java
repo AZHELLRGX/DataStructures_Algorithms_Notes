@@ -21,7 +21,7 @@ public class RelativeRanks {
     public String[] findRelativeRanks(int[] score) {
         final int[] newArray = Arrays.copyOf(score, score.length);
         Arrays.sort(newArray);
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Integer, Integer> map = new HashMap<>(score.length);
         for (int i = newArray.length - 1; i >= 0; i--) {
             map.put(newArray[i], newArray.length - i);
         }

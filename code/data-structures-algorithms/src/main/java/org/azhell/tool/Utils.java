@@ -41,6 +41,19 @@ public class Utils {
         System.out.println(o);
     }
 
+    public static void print(ListNode listNode) {
+        StringBuilder s = new StringBuilder("[");
+        while (listNode.next != null) {
+            s.append(listNode.val);
+            listNode = listNode.next;
+            if (listNode.next != null) {
+                s.append(",");
+            }
+        }
+        s.append("]");
+        System.out.println(s);
+    }
+
     public static void print(int[][] array) {
         StringBuilder s = new StringBuilder("[");
         for (int i = 0; i < array.length; i++) {
