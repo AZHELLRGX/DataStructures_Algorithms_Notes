@@ -43,10 +43,10 @@ public class Utils {
 
     public static void print(ListNode listNode) {
         StringBuilder s = new StringBuilder("[");
-        while (listNode.next != null) {
+        while (listNode != null) {
             s.append(listNode.val);
             listNode = listNode.next;
-            if (listNode.next != null) {
+            if (listNode != null) {
                 s.append(",");
             }
         }
