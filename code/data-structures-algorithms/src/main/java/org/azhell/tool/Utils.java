@@ -60,7 +60,7 @@ public class Utils {
             s.append("[");
             for (int j = 0; j < array[i].length; j++) {
                 s.append(array[i][j]);
-                if (j != array.length - 1) {
+                if (j != array[i].length - 1) {
                     s.append(",");
                 }
             }
@@ -68,7 +68,7 @@ public class Utils {
                 s.append("],\n");
             }
         }
-        s.append("]");
+        s.append("]]");
         System.out.println(s);
     }
 
