@@ -1,11 +1,47 @@
 package org.azhell.tool;
 
 import org.azhell.leecode.entry.ListNode;
+import org.azhell.leecode.entry.TreeNode;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Utils {
 
     private Utils() {
         // do nothing
+    }
+
+    /**
+     * 使用leet-code的一维数组初始化一棵二叉树
+     * 数组是先序遍历的结果
+     */
+    public static TreeNode initTreeNode(Integer[] array) {
+        if (array.length == 0) {
+            return null;
+        }
+        TreeNode root = new TreeNode(array[0]);
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        boolean isLeft = true;
+        for (int i = 1; i < array.length; i++) {
+            TreeNode node = queue.peek();
+            if (isLeft) {
+                if (array[i] != null && node != null) {
+                    node.left = new TreeNode(array[i]);
+                    queue.offer(node.left);
+                }
+                isLeft = false;
+            } else {
+                if (array[i] != null && node != null) {
+                    node.right = new TreeNode(array[i]);
+                    queue.offer(node.right);
+                }
+                queue.poll();
+                isLeft = true;
+            }
+        }
+        return root;
     }
 
     /**
@@ -24,7 +60,7 @@ public class Utils {
 
     public static void printLinkedList(ListNode head) {
         if (head == null) {
-            System.out.println("[]");
+            print("[]");
         } else {
             StringBuilder s = new StringBuilder("[");
             while (head.next != null) {
@@ -33,7 +69,7 @@ public class Utils {
             }
             s.append(head.val);
             s.append("]");
-            System.out.println(s);
+            print(s);
         }
     }
 
@@ -51,7 +87,7 @@ public class Utils {
             }
         }
         s.append("]");
-        System.out.println(s);
+        print(s);
     }
 
     public static void print(int[][] array) {
@@ -69,10 +105,10 @@ public class Utils {
             }
         }
         s.append("]]");
-        System.out.println(s);
+        print(s);
     }
 
-    public static void print(String[] array) {
+    public static void print(Object[] array) {
         StringBuilder s = new StringBuilder("[");
         for (int i = 0; i < array.length; i++) {
             s.append(array[i]);
@@ -81,19 +117,7 @@ public class Utils {
             }
         }
         s.append("]");
-        System.out.println(s);
-    }
-
-    public static void print(int[] array) {
-        StringBuilder s = new StringBuilder("[");
-        for (int i = 0; i < array.length; i++) {
-            s.append(array[i]);
-            if (i != array.length - 1) {
-                s.append(",");
-            }
-        }
-        s.append("]");
-        System.out.println(s);
+        print(s);
     }
 
     public static String handleLeetcodeQuestionENName(String str) {
@@ -109,6 +133,6 @@ public class Utils {
     }
 
     public static void main(String[] args) {
-        System.out.println(handleLeetcodeQuestionENName("Search Insert Position"));
+        print(handleLeetcodeQuestionENName("Search Insert Position"));
     }
 }
