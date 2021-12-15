@@ -108,7 +108,19 @@ public class Utils {
         print(s);
     }
 
-    public static void print(Object[] array) {
+    public static void print(String ... array) {
+        StringBuilder s = new StringBuilder("[");
+        for (int i = 0; i < array.length; i++) {
+            s.append(array[i]);
+            if (i != array.length - 1) {
+                s.append(",");
+            }
+        }
+        s.append("]");
+        print(s);
+    }
+
+    public static void print(int ... array) {
         StringBuilder s = new StringBuilder("[");
         for (int i = 0; i < array.length; i++) {
             s.append(array[i]);
