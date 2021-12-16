@@ -3,13 +3,24 @@ package org.azhell.tool;
 import org.azhell.leecode.entry.ListNode;
 import org.azhell.leecode.entry.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Utils {
 
     private Utils() {
         // do nothing
+    }
+
+    public static List<Integer> initList(Integer[] list) {
+        return Arrays.asList(list);
+    }
+
+    public static List<List<Integer>> initNestedList(Integer[][] list) {
+        List<List<Integer>> arrayList = new ArrayList<>();
+        for (Integer[] l : list) {
+            arrayList.add(Arrays.asList(l));
+        }
+        return arrayList;
     }
 
     /**
@@ -108,7 +119,7 @@ public class Utils {
         print(s);
     }
 
-    public static void print(String ... array) {
+    public static void print(String... array) {
         StringBuilder s = new StringBuilder("[");
         for (int i = 0; i < array.length; i++) {
             s.append(array[i]);
@@ -120,7 +131,7 @@ public class Utils {
         print(s);
     }
 
-    public static void print(int ... array) {
+    public static void print(int... array) {
         StringBuilder s = new StringBuilder("[");
         for (int i = 0; i < array.length; i++) {
             s.append(array[i]);
