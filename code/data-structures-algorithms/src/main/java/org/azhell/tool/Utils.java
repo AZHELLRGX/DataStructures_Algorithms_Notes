@@ -112,10 +112,12 @@ public class Utils {
                 }
             }
             if (i != array.length - 1) {
-                s.append("],\n");
+                s.append("],");
+            }else{
+                s.append("]");
             }
         }
-        s.append("]]");
+        s.append("]");
         print(s);
     }
 
