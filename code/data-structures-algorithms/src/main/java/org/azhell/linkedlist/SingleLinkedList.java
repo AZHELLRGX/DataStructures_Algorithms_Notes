@@ -1,6 +1,9 @@
 package org.azhell.linkedlist;
 
-import java.util.Stack;
+import org.azhell.tool.Utils;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * 单链表
@@ -15,8 +18,6 @@ public class SingleLinkedList<E> {
 
     /**
      * 链表尾部添加元素
-     *
-     * @param e
      */
     public void add(E e) {
         if (head == null) {
@@ -45,14 +46,14 @@ public class SingleLinkedList<E> {
         if (head == null) {
             throw new NullPointerException("current singleLinkedList is null , can‘t print!");
         } else {
-            Stack<E> stack = new Stack<>();
+            Deque<E> stack = new ArrayDeque<>();
             Node<E> temp = head;
             while (temp != null) {
                 stack.push(temp.item);
                 temp = temp.next;
             }
-            while (stack.size() > 0) {
-                System.out.println(stack.pop());
+            while (!stack.isEmpty()) {
+                Utils.print(stack.pop());
             }
         }
     }
@@ -81,8 +82,6 @@ public class SingleLinkedList<E> {
 
     /**
      * 移出链表的第一个元素
-     *
-     * @return
      */
     public E removeFirst() {
         E firstItem;
@@ -102,8 +101,6 @@ public class SingleLinkedList<E> {
 
     /**
      * 移出链表的最后一个节点
-     *
-     * @return
      */
     public E removeLast() {
         E lastItem;
