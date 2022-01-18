@@ -1,4 +1,4 @@
-package org.azhell.leecode.sword;
+package org.azhell.leecode;
 
 import org.azhell.tool.Utils;
 
