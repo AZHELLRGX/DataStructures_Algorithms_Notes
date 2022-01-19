@@ -1,4 +1,4 @@
-package org.azhell.sparsearray;
+package org.azhell.datastructures.sparsearray;
 
 public class Testing {
     public static void main(String[] args) {

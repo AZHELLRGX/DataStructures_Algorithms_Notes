@@ -1,4 +1,4 @@
-package org.azhell;
+package org.azhell.leecode;
 
 import org.azhell.tool.Utils;
 

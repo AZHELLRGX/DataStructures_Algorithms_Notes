@@ -1,4 +1,4 @@
-package org.azhell.sparsearray;
+package org.azhell.datastructures.sparsearray;
 
 /**
  * 普通数组与稀疏数组互相转换

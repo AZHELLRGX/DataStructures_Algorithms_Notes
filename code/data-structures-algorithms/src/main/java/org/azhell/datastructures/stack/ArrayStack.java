@@ -1,4 +1,4 @@
-package org.azhell.stack;
+package org.azhell.datastructures.stack;
 
 
 import java.util.ArrayList;

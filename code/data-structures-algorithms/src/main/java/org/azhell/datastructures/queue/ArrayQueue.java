@@ -1,4 +1,4 @@
-package org.azhell.queue;
+package org.azhell.datastructures.queue;
 
 /**
  * 数组实现队列

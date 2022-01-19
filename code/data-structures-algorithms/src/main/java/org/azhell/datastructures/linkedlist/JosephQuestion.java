@@ -1,4 +1,4 @@
-package org.azhell.linkedlist;
+package org.azhell.datastructures.linkedlist;
 
 /**
  * Joseph问题为:设编号为1，2, …n的n个人围坐一圈，

@@ -1,6 +1,6 @@
-package org.azhell.queue;
+package org.azhell.datastructures.queue;
 
-import org.azhell.linkedlist.SingleLinkedList;
+import org.azhell.datastructures.linkedlist.SingleLinkedList;
 
 /**
  * 链表实现队列

@@ -1,4 +1,4 @@
-package org.azhell.queue;
+package org.azhell.datastructures.queue;
 
 
 /**

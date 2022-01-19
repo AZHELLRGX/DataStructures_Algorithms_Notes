@@ -1,4 +1,4 @@
-package org.azhell.queue;
+package org.azhell.datastructures.queue;
 
 /**
  * 测试数组队列、环形队列、链表队列、阻塞队列

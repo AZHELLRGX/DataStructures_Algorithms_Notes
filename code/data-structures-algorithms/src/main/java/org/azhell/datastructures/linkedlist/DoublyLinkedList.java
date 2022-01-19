@@ -1,4 +1,4 @@
-package org.azhell.linkedlist;
+package org.azhell.datastructures.linkedlist;
 
 
 /**
