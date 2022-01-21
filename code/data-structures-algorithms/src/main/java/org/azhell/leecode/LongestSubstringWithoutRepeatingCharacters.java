@@ -11,7 +11,7 @@ import java.util.Map;
  * 这种题的解决思路其实就是使用一个滑动窗口
  * 在java里面可以使用Map来做滑动窗口
  * <p>
- * 收藏一个很牛的解法，属于把数组运用到机智，这也给了我启发，
+ * 收藏一个很牛的解法，属于把数组运用到极致了，这也给了我启发，
  * 数组的下标不只是可以拿来做元素的索引而已
  */
 public class LongestSubstringWithoutRepeatingCharacters {
