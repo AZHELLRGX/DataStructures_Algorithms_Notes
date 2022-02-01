@@ -3,8 +3,10 @@ package org.azhell.leecode;
 import org.azhell.tool.Utils;
 
 /**
- * 实现 pow(x, n) ，即计算 x 的 n 次幂函数（即，xn）。
- * 二分法递归解法，加速相乘
+ * 50. Pow(x, n)
+ * 剑指 Offer 16. 数值的整数次方
+ * 即计算 x 的 n 次幂函数（即，xn）。
+ * 二分递归解法，达到加速相乘的目的
  */
 public class PowXN {
     public static void main(String[] args) {
@@ -40,10 +42,9 @@ public class PowXN {
         if (n == 1) {
             return x;
         }
-        double y = myPow(x, n / 2);
+        double y = myPowHandle(x, n / 2);
         double result = y * y;
-        int remainder = n % 2;
-        if (remainder == 1) {
+        if ((n & 1) == 1) {
             result *= x;
         }
         return result;
