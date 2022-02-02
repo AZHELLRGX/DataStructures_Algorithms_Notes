@@ -4,10 +4,11 @@ import org.azhell.tool.Utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * 三数之和
+ * 15.三数之和
  * 排序、双指针解法；第二次使用到双指针
  */
 public class Q3Sum {
@@ -15,15 +16,57 @@ public class Q3Sum {
     public static void main(String[] args) {
         Q3Sum q3Sum = new Q3Sum();
         Utils.print(q3Sum.threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+        Utils.print(q3Sum.threeSumOld(new int[]{-1, 0, 1, 2, -1, -4}));
         Utils.print(q3Sum.threeSum(new int[]{0, 0, 0}));
+        Utils.print(q3Sum.threeSumOld(new int[]{0, 0, 0}));
         Utils.print(q3Sum.threeSum(new int[]{0}));
+        Utils.print(q3Sum.threeSumOld(new int[]{0}));
         Utils.print(q3Sum.threeSum(new int[]{-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4}));
+        Utils.print(q3Sum.threeSumOld(new int[]{-1, 0, 1, 2, -1, -4, -2, -3, 3, 0, 4}));
         Utils.print(q3Sum.threeSum(new int[]{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}));
+        Utils.print(q3Sum.threeSumOld(new int[]{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}));
 
     }
 
+    // 优化后的方案 去重方案使用三个临时变量
+    public List<List<Integer>> threeSum(int[] nums) {
+        int n = nums.length;
+        if (n < 3) {
+            return Collections.emptyList();
+        }
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+        int curNum = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            if (curNum != nums[i] && nums[i] <= 0) {
+                int l = i + 1;
+                int r = n - 1;
+                int lNum = Integer.MAX_VALUE;
+                int rNum = Integer.MAX_VALUE;
+                while (l < r) {
+                    int ans = nums[l] + nums[r] + nums[i];
+                    if (ans == 0) {
+                        if (nums[l] != lNum && nums[r] != rNum)
+                            result.add(Arrays.asList(nums[i], nums[l], nums[r]));
+                        lNum = nums[l];
+                        rNum = nums[r];
+                        l++;
+                        r--;
+                    } else if (ans > 0) {
+                        r--;
+                    } else {
+                        l++;
+                    }
+                }
+                curNum = nums[i];
+            }
+        }
+        return result;
+    }
 
-    private List<List<Integer>> threeSum(int[] nums) {
+
+    // 过去的旧方案，需要优化
+    private List<List<Integer>> threeSumOld(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
 
         if (nums.length < 3) {
