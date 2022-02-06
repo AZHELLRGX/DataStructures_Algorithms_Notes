@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 组合总和
+ * 39.组合总和
  * 本来开始尝试动态规划解题
  * 但是好像都建议回溯算法
  * 需要思考结果重复的问题如何解决
@@ -23,17 +23,12 @@ public class CombinationSum {
         Utils.print(new CombinationSum().combinationSum(new int[]{2, 1}, 4));
     }
 
-    List<List<Integer>> result = new ArrayList<>();
+    List<List<Integer>> result;
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        this.result = new ArrayList<>();
         Arrays.sort(candidates);
-        for (int candidate : candidates) {
-            if (target - candidate >= 0) {
-                List<Integer> solution = new ArrayList<>();
-                solution.add(candidate);
-                combinationSumHandle(candidates, candidate, target - candidate, solution);
-            }
-        }
+        combinationSumHandle(candidates, 201, target, new ArrayList<>());
         return result;
     }
 
