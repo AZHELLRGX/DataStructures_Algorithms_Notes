@@ -5,7 +5,7 @@ import org.azhell.tool.Utils;
 import java.util.*;
 
 /**
- * 电话号码的字母组合
+ * 17.电话号码的字母组合
  * 回溯算法
  * 关于回溯算法：这篇文章解释的不错
  * https://zhuanlan.zhihu.com/p/93530380
@@ -16,30 +16,34 @@ public class LetterCombinationsOfAPhoneNumber {
         Utils.print(new LetterCombinationsOfAPhoneNumber().letterCombinations(""));
     }
 
-    List<String> result = new ArrayList<>();
-    Map<String, String[]> map = new HashMap<String, String[]>() {{
-        put("2", new String[]{"a", "b", "c"});
-        put("3", new String[]{"d", "e", "f"});
-        put("4", new String[]{"g", "h", "i"});
-        put("5", new String[]{"j", "k", "l"});
-        put("6", new String[]{"m", "n", "o"});
-        put("7", new String[]{"p", "q", "r", "s"});
-        put("8", new String[]{"t", "u", "v"});
-        put("9", new String[]{"w", "x", "y", "z"});
+    List<String> result;
+    Map<Character, char[]> map = new HashMap<Character, char[]>() {{
+        put('2', new char[]{'a', 'b', 'c'});
+        put('3', new char[]{'d', 'e', 'f'});
+        put('4', new char[]{'g', 'h', 'i'});
+        put('5', new char[]{'j', 'k', 'l'});
+        put('6', new char[]{'m', 'n', 'o'});
+        put('7', new char[]{'p', 'q', 'r', 's'});
+        put('8', new char[]{'t', 'u', 'v'});
+        put('9', new char[]{'w', 'x', 'y', 'z'});
     }};
 
     public List<String> letterCombinations(String digits) {
+        this.result = new ArrayList<>();
         if (digits.isEmpty()) return result;
-        backtrack("", Arrays.asList(digits.split("")));
+        char[] array = new char[digits.length()];
+        backtrack(array, 0, digits);
         return result;
     }
 
-    private void backtrack(String path, List<String> digitList) {
-        if (digitList.isEmpty()) {
-            result.add(path);
+    private void backtrack(char[] array, int i, String digits) {
+        if (i == digits.length()) {
+            result.add(new String(array));
         } else {
-            for (String s : map.get(digitList.get(0))) {
-                backtrack(path + s, digitList.subList(1, digitList.size()));
+            char[] chars = map.get(digits.charAt(i));
+            for (char c : chars) {
+                array[i] = c;
+                backtrack(array, i + 1, digits);
             }
         }
     }
