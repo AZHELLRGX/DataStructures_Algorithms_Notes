@@ -4,7 +4,9 @@ import org.azhell.tool.Utils;
 
 /**
  * 62. 不同路径
- * 动态规划解题  递归公式dp[i][j] =  dp[i - 1][j] + dp[i][j - 1]
+ * 动态规划解题
+ * 边界条件：dp[0][0] = 0 第一行第一列的值都是1
+ * 动态转移方程 dp[i][j] =  dp[i - 1][j] + dp[i][j - 1]
  */
 public class UniquePaths {
     public static void main(String[] args) {
