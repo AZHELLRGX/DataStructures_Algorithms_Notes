@@ -18,13 +18,15 @@ public class Offer22 {
     public ListNode getKthFromEnd(ListNode head, int k) {
         ListNode curNode = head;
         ListNode newHead = head;
-        int i = -k;
+        int i = k;
         while (curNode != null) {
-            if (i > -1) {
+            if (i == 0) {
                 newHead = newHead.next;
+            } else {
+                i--;
             }
             curNode = curNode.next;
-            i++;
+
         }
         return newHead;
     }
