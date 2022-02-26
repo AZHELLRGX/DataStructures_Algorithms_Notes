@@ -2,7 +2,8 @@ package org.azhell.leecode.sword;
 
 import org.azhell.tool.Utils;
 
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * 剑指 Offer 09. 用两个栈实现队列
@@ -28,12 +29,12 @@ public class Offer09 {
     }
 
     static class CQueue {
-        Stack<Integer> s1;
-        Stack<Integer> s2;
+        Deque<Integer> s1;
+        Deque<Integer> s2;
 
         public CQueue() {
-            this.s1 = new Stack<>();
-            this.s2 = new Stack<>();
+            this.s1 = new ArrayDeque<>();
+            this.s2 = new ArrayDeque<>();
         }
 
         public void appendTail(int value) {
@@ -45,6 +46,7 @@ public class Offer09 {
                 while (!s1.isEmpty())
                     s2.push(s1.pop());
             }
+            // 如果两个栈都没数据了，直接返回-1
             if (s2.isEmpty()) {
                 return -1;
             }
