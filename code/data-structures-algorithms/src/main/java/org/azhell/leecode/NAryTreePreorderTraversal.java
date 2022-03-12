@@ -5,11 +5,13 @@ import java.util.List;
 
 /**
  * 589. N 叉树的前序遍历
+ * 590. N 叉树的后序遍历
  */
 public class NAryTreePreorderTraversal {
 
     List<Integer> result;
 
+    // 前序遍历
     public List<Integer> preorder(Node root) {
         result = new ArrayList<>();
         if (root == null) {
@@ -27,6 +29,26 @@ public class NAryTreePreorderTraversal {
             }
         }
     }
+
+    // 后序遍历
+    public List<Integer> postorder(Node root) {
+        result = new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        postorderHelper(root);
+        return result;
+    }
+
+    private void postorderHelper(Node node) {
+        if (node.children != null) {
+            for (Node child : node.children) {
+                postorderHelper(child);
+            }
+        }
+        result.add(node.val);
+    }
+
 
     static class Node {
         public int val;
