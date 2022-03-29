@@ -29,9 +29,8 @@ public class MaximizeTheConfusionOfAnExam {
                 fSum += 1;
             }
             right += 1;
-            int sum = Math.min(tSum, fSum);
             // 如果不同字符已经不能被全部替换，则窗口右移
-            if (sum > k) {
+            while (tSum > k && fSum > k) {
                 if ('T' == answerKey.charAt(left)) {
                     tSum -= 1;
                 } else {
